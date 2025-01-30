@@ -6,29 +6,24 @@ import Footer from '@/components/Footer'
 const ibmPlex = localFont({
   src: [
     {
-      path: '../../public/fonts/IBMPlexSansArabic-Regular.woff2',
+      path: '../../../public/fonts/IBMPlexSansArabic-Regular.woff2',
       weight: '400',
-      style: 'normal',
     },
     {
-      path: '../../public/fonts/IBMPlexSansArabic-Medium.woff2',
+      path: '../../../public/fonts/IBMPlexSansArabic-Medium.woff2',
       weight: '500',
-      style: 'normal',
     },
     {
-      path: '../../public/fonts/IBMPlexSansArabic-SemiBold.woff2',
+      path: '../../../public/fonts/IBMPlexSansArabic-SemiBold.woff2',
       weight: '600',
-      style: 'normal',
     },
     {
-      path: '../../public/fonts/IBMPlexSansArabic-Bold.woff2',
+      path: '../../../public/fonts/IBMPlexSansArabic-Bold.woff2',
       weight: '700',
-      style: 'normal',
-    },
+    }
   ],
+  variable: '--font-ibm-plex',
   display: 'swap',
-  fallback: ['system-ui', 'arial'],
-  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -42,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ar" dir="rtl" className={ibmPlex.className}>
+    <html lang="ar" dir="rtl" className={ibmPlex.variable}>
       <head>
         <link
           rel="preconnect"
