@@ -153,8 +153,8 @@ const About = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-accent">رؤيتنا</h3>
                 </div>
-                <p className="text-lg leading-relaxed text-gray-300">
-                  نسعى في مكتب الدكتور وليد المزيد للمحاماة إلى أن نكون في طليعة المكاتب القانونية، عبر تقديم استشارات متكاملة وحلول عملية للتحديات القانونية المتنوعة.
+                <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
+                  نسعى في المزيد القانونية للمحاماة والاستشارات القانونية إلى أن نكون في طليعة المكاتب القانونية، عبر تقديم استشارات متكاملة وحلول عملية للتحديات القانونية المتنوعة.
                 </p>
               </div>
             </motion.div>

@@ -98,31 +98,36 @@ export default function Team() {
               transition={{ delay: index * 0.1 }}
               className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/10 group hover:border-brand-gold/30 transition-all duration-300"
             >
-              <div className="flex items-start gap-6">
-                <div className="relative w-24 h-24 shrink-0">
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-gold via-brand-gold-light to-brand-gold-dark opacity-20 group-hover:opacity-30 transition-opacity" />
-                  <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-brand-gold/20 group-hover:border-brand-gold/40 transition-colors">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="relative w-28 h-28 md:w-32 md:h-32 mx-auto md:mx-0 shrink-0">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-gold via-brand-gold-light to-brand-gold-dark opacity-20 group-hover:opacity-30 transition-opacity" />
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-brand-gold/20 group-hover:border-brand-gold/40 transition-colors">
                     <div className="w-full h-full bg-brand-gold/10" />
                   </div>
                 </div>
 
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-2 text-text-primary group-hover:gradient-text transition-all">
+                <div className="flex-1 text-center md:text-right">
+                  <h3 className="text-2xl font-semibold mb-2 text-text-primary group-hover:gradient-text transition-all">
                     {member.name}
                   </h3>
-                  <p className="text-brand-gold mb-4 text-sm font-medium">
-                    {member.role}
-                  </p>
-                  <ul className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-4">
+                    <span className="text-brand-gold text-sm font-medium">
+                      {member.role}
+                    </span>
+                  </div>
+                  <div className="space-y-3 mt-4">
                     {member.qualifications.map((qualification, idx) => (
-                      <li 
+                      <div 
                         key={idx} 
-                        className="text-text-secondary text-sm relative pr-6 before:content-[''] before:absolute before:right-0 before:top-[0.6em] before:w-1.5 before:h-1.5 before:bg-brand-gold/30 before:rounded-full leading-relaxed"
+                        className="text-text-secondary text-sm relative group/item transition-all duration-300 hover:text-text-primary"
                       >
-                        {qualification}
-                      </li>
+                        <div className="flex items-start gap-3">
+                          <div className="shrink-0 w-1.5 h-1.5 mt-2 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-light opacity-40 group-hover/item:opacity-100 transition-opacity" />
+                          <p className="leading-relaxed">{qualification}</p>
+                        </div>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -60,7 +60,7 @@ export default function About() {
             viewport={{ once: true }}
             className="section-heading text-4xl md:text-5xl font-bold"
           >
-            مكتب الدكتور وليد المزيد
+            المزيد القانونية
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
