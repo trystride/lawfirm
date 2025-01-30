@@ -9,12 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'ibm-plex': ['IBM Plex Sans Arabic', 'sans-serif'],
+        'ibm-plex': ['var(--font-ibm-plex)'],
         tajawal: ['Tajawal', 'sans-serif'],
         cairo: ['Cairo', 'sans-serif'],
         'open-sans': ['Open Sans', 'sans-serif'],
         geist: ['var(--font-geist-sans)'],
-        'ibm-plex-arabic': ['IBM Plex Sans Arabic', 'sans-serif'],
+        'ibm-plex-arabic': ['var(--font-ibm-plex-arabic)'],
       },
       animation: {
         grid: 'grid 20s linear infinite',
