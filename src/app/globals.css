@@ -7,7 +7,6 @@
   --text-primary: 245, 245, 245; /* #F5F5F5 */
   --text-secondary: 177, 177, 177; /* #B1B1B1 */
   --brand-gold: 235, 203, 139; /* #EBCB8B */
-  --font-ibm-plex: 'IBM Plex Sans', sans-serif;
 }
 
 html {
@@ -17,8 +16,7 @@ html {
 body {
   color: rgb(var(--text-primary));
   background: rgb(var(--background));
-  font-family: var(--font-ibm-plex);
-  font-display: swap;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
 }
 
 @layer base {

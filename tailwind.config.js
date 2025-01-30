@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'ibm-plex': ['IBM Plex Sans Arabic', 'sans-serif'],
+        'ibm-plex': ['"IBM Plex Sans Arabic"', 'sans-serif'],
         tajawal: ['var(--font-tajawal)'],
         cairo: ['var(--font-cairo)'],
         'open-sans': ['var(--font-open-sans)'],

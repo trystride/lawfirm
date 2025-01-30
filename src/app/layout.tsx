@@ -1,14 +1,11 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans_Arabic, Tajawal, Cairo, Open_Sans } from 'next/font/google'
+import { Tajawal, Cairo, Open_Sans } from 'next/font/google'
+import '@fontsource/ibm-plex-sans-arabic/400.css'
+import '@fontsource/ibm-plex-sans-arabic/500.css'
+import '@fontsource/ibm-plex-sans-arabic/600.css'
+import '@fontsource/ibm-plex-sans-arabic/700.css'
 import '@/styles/custom.css'
 import Footer from '@/components/Footer'
-
-const ibmPlex = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-ibm-plex',
-})
 
 const tajawal = Tajawal({
   subsets: ['arabic'],
@@ -42,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ar" dir="rtl" className={`${ibmPlex.variable} ${tajawal.variable} ${cairo.variable} ${openSans.variable}`}>
+    <html lang="ar" dir="rtl" className={`${tajawal.variable} ${cairo.variable} ${openSans.variable}`}>
       <head>
         <link
           rel="preconnect"
