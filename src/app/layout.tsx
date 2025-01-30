@@ -1,15 +1,34 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans_Arabic } from 'next/font/google'
+import localFont from 'next/font/local'
 import '@/styles/custom.css'
 import Footer from '@/components/Footer'
 
-const ibmPlex = IBM_Plex_Sans_Arabic({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['arabic'],
+const ibmPlex = localFont({
+  src: [
+    {
+      path: '../../public/fonts/IBMPlexSansArabic-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/IBMPlexSansArabic-Medium.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/IBMPlexSansArabic-SemiBold.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/IBMPlexSansArabic-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
-  preload: true,
   fallback: ['system-ui', 'arial'],
-  adjustFontFallback: true,
+  preload: true,
 })
 
 export const metadata: Metadata = {
