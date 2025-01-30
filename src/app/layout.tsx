@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import { Tajawal, Cairo, Open_Sans } from 'next/font/google'
+import { IBM_Plex_Sans_Arabic, Tajawal, Cairo, Open_Sans } from 'next/font/google'
 import '@/styles/custom.css'
 import Footer from '@/components/Footer'
+
+const ibmPlex = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-ibm-plex',
+})
 
 const tajawal = Tajawal({
   subsets: ['arabic'],
@@ -23,29 +29,6 @@ const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
   variable: '--font-open-sans',
-})
-
-const ibmPlex = localFont({
-  src: [
-    {
-      path: '../../public/fonts/IBMPlexSansArabic-Regular.woff2',
-      weight: '400',
-    },
-    {
-      path: '../../public/fonts/IBMPlexSansArabic-Medium.woff2',
-      weight: '500',
-    },
-    {
-      path: '../../public/fonts/IBMPlexSansArabic-SemiBold.woff2',
-      weight: '600',
-    },
-    {
-      path: '../../public/fonts/IBMPlexSansArabic-Bold.woff2',
-      weight: '700',
-    }
-  ],
-  variable: '--font-ibm-plex',
-  display: 'swap',
 })
 
 export const metadata: Metadata = {
