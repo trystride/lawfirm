@@ -17,6 +17,7 @@ body {
   color: rgb(var(--text-primary));
   background: rgb(var(--background));
   @apply font-ibm-plex;
+  font-display: swap;
 }
 
 @layer base {
