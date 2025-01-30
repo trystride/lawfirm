@@ -10,9 +10,9 @@ module.exports = {
     extend: {
       fontFamily: {
         'ibm-plex': ['var(--font-ibm-plex)'],
-        tajawal: ['Tajawal', 'sans-serif'],
-        cairo: ['Cairo', 'sans-serif'],
-        'open-sans': ['Open Sans', 'sans-serif'],
+        tajawal: ['var(--font-tajawal)'],
+        cairo: ['var(--font-cairo)'],
+        'open-sans': ['var(--font-open-sans)'],
         geist: ['var(--font-geist-sans)'],
         'ibm-plex-arabic': ['var(--font-ibm-plex-arabic)'],
       },

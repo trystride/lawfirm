@@ -1,7 +1,29 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Tajawal, Cairo, Open_Sans } from 'next/font/google'
 import '@/styles/custom.css'
 import Footer from '@/components/Footer'
+
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['200', '300', '400', '500', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-tajawal',
+})
+
+const cairo = Cairo({
+  subsets: ['arabic'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900', '1000'],
+  display: 'swap',
+  variable: '--font-cairo',
+})
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-open-sans',
+})
 
 const ibmPlex = localFont({
   src: [
@@ -37,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ar" dir="rtl" className={ibmPlex.variable}>
+    <html lang="ar" dir="rtl" className={`${ibmPlex.variable} ${tajawal.variable} ${cairo.variable} ${openSans.variable}`}>
       <head>
         <link
           rel="preconnect"
