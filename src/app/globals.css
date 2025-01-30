@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 8, 20, 37; /* #081425 */
+  --text-primary: 245, 245, 245; /* #F5F5F5 */
+  --text-secondary: 177, 177, 177; /* #B1B1B1 */
+  --brand-gold: 235, 203, 139; /* #EBCB8B */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--text-primary));
+  background: rgb(var(--background));
+}
+
+@layer base {
+  html {
+    direction: rtl;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-light text-white font-bold py-2 px-6 rounded-lg transition-colors duration-200;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-accent;
+  }
+  
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+}

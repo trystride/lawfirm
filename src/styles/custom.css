@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 215 85% 8%;
+    --foreground: 0 0% 96%;
+    
+    --brand-gold: 38 40% 61%;
+    --brand-gold-light: 38 40% 71%;
+    --brand-gold-dark: 38 40% 51%;
+    
+    --text-primary: 0 0% 96%;
+    --text-secondary: 0 0% 69%;
+  }
+
+  html {
+    direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text-primary;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+  }
+
+  /* Enhanced Typography for Arabic */
+  h1, h2, h3, h4, h5, h6, p, span, a, button {
+    @apply leading-relaxed;
+    line-height: 1.8;
+    letter-spacing: -0.01em;
+  }
+
+  /* Specific adjustments for titles */
+  .section-heading, h1 {
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-24 md:py-32;
+  }
+
+  .section-header {
+    @apply text-center max-w-4xl mx-auto mb-16;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-6;
+  }
+
+  .card {
+    @apply relative p-8 rounded-2xl border border-brand-gold/10 bg-background/30 backdrop-blur-sm
+    hover:border-brand-gold/20 transition-all duration-300;
+  }
+
+  .card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-brand-gold/5 via-transparent to-transparent
+    rounded-2xl opacity-0 transition-opacity duration-300;
+  }
+
+  .card:hover::before {
+    @apply opacity-100;
+  }
+
+  .icon {
+    @apply text-brand-gold transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold bg-clip-text text-transparent;
+  }
+
+  /* Enhanced Button Typography */
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold
+    text-background font-medium hover:shadow-lg hover:shadow-brand-gold/20 
+    active:shadow-md active:scale-[0.98] transition-all duration-300;
+    line-height: 2;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl border-2 border-brand-gold/20 text-text-primary font-medium
+    hover:border-brand-gold/40 hover:bg-brand-gold/5 transition-all duration-300;
+    line-height: 2;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Enhanced Form Input Typography */
+  .form-input {
+    @apply w-full px-4 rounded-lg bg-background/50 border border-brand-gold/20 focus:border-brand-gold/40 focus:outline-none;
+    line-height: 2;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .form-label {
+    @apply block text-text-primary mb-2 font-medium;
+    line-height: 1.8;
+  }
+
+  /* Rest of the styles remain unchanged */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-hover-effect {
+    @apply relative overflow-hidden;
+  }
+
+  .card-hover-effect::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-brand-gold/10 to-transparent
+    opacity-0 transition-opacity duration-300;
+  }
+
+  .card-hover-effect:hover::after {
+    @apply opacity-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-gold/20 rounded-full hover:bg-brand-gold/30 transition-colors duration-300;
+  }
+
+  .primary-button {
+    @apply inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold
+    text-background font-medium transition-all duration-300;
+  }
+
+  .primary-button:hover {
+    @apply shadow-lg shadow-brand-gold/20;
+  }
+
+  .primary-button:active {
+    @apply shadow-md scale-[0.98];
+  }
+
+  .service-card {
+    @apply bg-background/30 p-8 rounded-lg border border-brand-gold/20 hover-effect h-full;
+  }
+
+  .team-card {
+    @apply bg-background/30 p-6 rounded-lg border border-brand-gold/20 hover-effect h-full;
+  }
+
+  .hover-effect {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .hover-effect:hover {
+    @apply -translate-y-0.5 shadow-lg;
+  }
+}
