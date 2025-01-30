@@ -7,6 +7,9 @@ const ibmPlex = IBM_Plex_Sans_Arabic({
   weight: ['400', '500', '600', '700'],
   subsets: ['arabic'],
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
@@ -21,6 +24,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className={ibmPlex.className}>
+      <head>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen bg-[#081425] bg-gradient-to-b from-background via-background to-background/95">
         <div className="relative min-h-screen">
           {/* Background Pattern */}
