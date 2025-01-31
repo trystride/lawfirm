@@ -21,7 +21,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -47,7 +47,7 @@ export default function Navbar() {
                 src="/images/logo.svg"
                 alt="المزيد القانوني"
                 fill
-                className="object-contain"
+                style={{ objectFit: 'contain' }}
                 priority
               />
             </div>

@@ -3,20 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --background: 8, 20, 37; /* #081425 */
-  --text-primary: 245, 245, 245; /* #F5F5F5 */
-  --text-secondary: 177, 177, 177; /* #B1B1B1 */
-  --brand-gold: 235, 203, 139; /* #EBCB8B */
+  --background: 8, 20, 37;
+  --text-primary: 245, 245, 245;
+  --text-secondary: 177, 177, 177;
+  --brand-gold: 197, 165, 114;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   color: rgb(var(--text-primary));
-  background: rgb(var(--background));
+  background: #081425;
   font-family: "IBM Plex Sans Arabic", sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 @layer base {
@@ -27,7 +30,7 @@ body {
 
 @layer components {
   .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-[100vw] overflow-hidden;
   }
   
   .btn-primary {

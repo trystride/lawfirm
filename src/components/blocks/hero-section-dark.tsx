@@ -25,7 +25,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.05 }}
             transition={{ duration: 2 }}
-            className="absolute inset-0 bg-[url('/patterns/noise.png')] mix-blend-overlay"
+            className="absolute inset-0 bg-[url('/patterns/noise.svg')] mix-blend-soft-light"
+            style={{ backgroundSize: '200px 200px' }}
           />
         </div>
 
@@ -37,14 +38,16 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             transition={{ duration: 0.8 }}
             className="w-full max-w-[500px] lg:max-w-[600px] mx-auto"
           >
-            <Image
-              src="/logo.svg"
-              alt="Almazyed Law Logo"
-              width={600}
-              height={400}
-              className="w-full h-auto"
-              priority
-            />
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/images/logo.svg"
+                alt="Almazyed Law Logo"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                className="object-contain"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
 
@@ -56,14 +59,16 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             transition={{ duration: 0.8 }}
             className="w-full max-w-[300px] mx-auto"
           >
-            <Image
-              src="/mobile-logo.svg"
-              alt="Almazyed Law Logo"
-              width={300}
-              height={200}
-              className="w-full h-auto"
-              priority
-            />
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/images/mobile-logo.svg"
+                alt="Almazyed Law Logo"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-contain"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
       </section>

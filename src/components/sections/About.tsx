@@ -41,12 +41,31 @@ const testimonials = [
 
 const stats = [
   { number: "+15", label: "سنوات من الخبرة" },
-  { number: "+500", label: "قضية ناجحة" },
+  { number: "+500", label: "عميل" },
   { number: "+50", label: "شركة تم تأسيسها" },
-  { number: "+20", label: "محامي وخبير" }
+  { number: "+7", label: "محامي وخبير" }
 ]
 
 export default function About() {
+  const handleConsultationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Set a timeout to focus and select the consultation option after scrolling
+      setTimeout(() => {
+        const subjectSelect = document.getElementById('subject') as HTMLSelectElement;
+        if (subjectSelect) {
+          subjectSelect.focus();
+          subjectSelect.value = 'استشارة';
+          // Trigger change event
+          subjectSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }, 800); // Wait for scroll animation to complete
+    }
+  };
+
   return (
     <section id="about" className="section relative overflow-hidden">
       {/* Background Pattern */}
@@ -93,11 +112,12 @@ export default function About() {
                   وقد ضمّ نخبة من المحامين والمستشارين ذوي الخبرات الواسعة في مختلف القطاعات القضائية والقانونية.
                 </p>
                 <motion.button
+                  onClick={handleConsultationClick}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="mt-6 px-8 py-3 bg-brand-gold text-background rounded-lg font-semibold hover:bg-brand-gold/90 transition-colors"
                 >
-                  احجز استشارة مجانية
+                  احجز استشارة
                 </motion.button>
               </div>
             </div>

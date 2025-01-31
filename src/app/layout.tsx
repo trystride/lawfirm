@@ -1,36 +1,29 @@
 import type { Metadata } from 'next'
-import { Tajawal, Cairo, Open_Sans } from 'next/font/google'
-import '@fontsource/ibm-plex-sans-arabic/400.css'
-import '@fontsource/ibm-plex-sans-arabic/500.css'
-import '@fontsource/ibm-plex-sans-arabic/600.css'
-import '@fontsource/ibm-plex-sans-arabic/700.css'
 import '@/styles/custom.css'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
+import { Suspense } from 'react'
+import { IBM_Plex_Sans_Arabic } from 'next/font/google'
 
-const tajawal = Tajawal({
+const ibmPlex = IBM_Plex_Sans_Arabic({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['arabic'],
-  weight: ['200', '300', '400', '500', '700', '800', '900'],
   display: 'swap',
-  variable: '--font-tajawal',
-})
-
-const cairo = Cairo({
-  subsets: ['arabic'],
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900', '1000'],
-  display: 'swap',
-  variable: '--font-cairo',
-})
-
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-  variable: '--font-open-sans',
 })
 
 export const metadata: Metadata = {
   title: 'المزيد القانونية - للمحاماة والاستشارات القانونية',
   description: 'مكتب المزيد للمحاماة والاستشارات القانونية - خبرة تمتد لأكثر من 15 عاماً في مجال المحاماة والاستشارات القانونية',
+  keywords: ['محاماة', 'استشارات قانونية', 'المزيد القانونية', 'مكتب محاماة'],
+  authors: [{ name: 'المزيد القانونية' }],
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
+  openGraph: {
+    type: 'website',
+    locale: 'ar_SA',
+    url: 'https://almazyed.law',
+    title: 'المزيد القانونية - للمحاماة والاستشارات القانونية',
+    description: 'مكتب المزيد للمحاماة والاستشارات القانونية - خبرة تمتد لأكثر من 15 عاماً في مجال المحاماة والاستشارات القانونية',
+  },
 }
 
 export default function RootLayout({
@@ -39,26 +32,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ar" dir="rtl" className={`${tajawal.variable} ${cairo.variable} ${openSans.variable}`}>
-      <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
+    <html lang="ar" dir="rtl" className={ibmPlex.className}>
       <body className="min-h-screen bg-[#081425] bg-gradient-to-b from-background via-background to-background/95">
         <div className="relative min-h-screen">
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,165,114,0.03),transparent_70%)]" />
-          <div className="absolute inset-0 bg-[url('/patterns/dot-pattern.png')] opacity-[0.02]" />
-          <div className="absolute inset-0 bg-[url('/patterns/noise.png')] opacity-[0.02] mix-blend-overlay" />
+          <div 
+            className="absolute inset-0 bg-[url('/patterns/noise.svg')] opacity-5 mix-blend-soft-light" 
+            style={{ backgroundSize: '200px 200px' }}
+            role="presentation"
+          />
           
           {/* Main Content */}
           <div className="relative">
-            {children}
+            <Suspense fallback={null}>
+              {children}
+            </Suspense>
           </div>
-          <Footer />
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
         </div>
       </body>
     </html>

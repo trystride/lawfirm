@@ -40,14 +40,15 @@ export default function Footer() {
             {/* Brand and Description */}
             <div className="md:col-span-5">
               <Link href="/" className="block mb-6">
-                <Image
-                  src="/logo.svg"
-                  alt="مكتب المزيد للمحاماة"
-                  width={180}
-                  height={60}
-                  className="brightness-0 invert opacity-90"
-                  priority
-                />
+                <div className="w-[220px] h-[80px] relative">
+                  <Image
+                    src="/images/logo.svg"
+                    alt="مكتب المزيد للمحاماة"
+                    fill
+                    className="brightness-0 invert opacity-90 object-contain"
+                    priority
+                  />
+                </div>
               </Link>
               <p className="text-text-secondary leading-relaxed mb-6">
                 نقدم خدمات قانونية احترافية ومتكاملة، ونسعى لتحقيق أهداف عملائنا من خلال الخبرة والكفاءة العالية

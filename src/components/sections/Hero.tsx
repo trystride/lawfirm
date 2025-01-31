@@ -1,6 +1,5 @@
 'use client'
 
-import HeroSection from "@/components/blocks/hero-section-dark"
 import { motion } from "framer-motion"
 
 const fadeInUp = {
@@ -10,6 +9,25 @@ const fadeInUp = {
 }
 
 const Hero = () => {
+  const handleConsultationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Set a timeout to focus and select the consultation option after scrolling
+      setTimeout(() => {
+        const subjectSelect = document.getElementById('subject') as HTMLSelectElement;
+        if (subjectSelect) {
+          subjectSelect.focus();
+          subjectSelect.value = 'استشارة';
+          // Trigger change event
+          subjectSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }, 800); // Wait for scroll animation to complete
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
       {/* Background layers */}
@@ -66,6 +84,7 @@ const Hero = () => {
           >
             <a 
               href="#contact"
+              onClick={handleConsultationClick}
               className="group relative inline-flex items-center justify-center"
             >
               <span className="absolute inset-0 rounded-full bg-gradient-to-r from-accent to-accent/80 blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
