@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { PhoneIcon, MailIcon, MapPinIcon, BuildingIcon, ExternalLinkIcon, ClockIcon, SendIcon, InstagramIcon, TwitterIcon, LinkedinIcon } from 'lucide-react'
+import { PhoneIcon, MailIcon, MapPinIcon, BuildingIcon, ExternalLinkIcon, ClockIcon, SendIcon, InstagramIcon, TwitterIcon, LinkedinIcon, X, CheckCircle } from 'lucide-react'
 
 const branches = [
   {
@@ -50,8 +50,49 @@ const subjects = [
   'استشارة'
 ] as const
 
+type Subject = typeof subjects[number]
+
+const ThankYouModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="relative w-full max-w-md bg-[#0B0F17] rounded-lg shadow-xl p-8 border border-gray-800 text-center"
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-4 left-4 p-2 rounded-full hover:bg-white/5 transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6 text-gray-400" />
+            </button>
+            
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center">
+                <CheckCircle className="w-8 h-8 text-brand-gold" />
+              </div>
+              <h2 className="text-2xl font-semibold gradient-text">شكراً لتواصلك معنا</h2>
+              <p className="text-text-secondary">سيتم التواصل معك في أقرب وقت</p>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  )
+}
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string
+    email: string
+    phone: string
+    subject: Subject
+    message: string
+  }>({
     name: '',
     email: '',
     phone: '',
@@ -59,11 +100,22 @@ export default function Contact() {
     message: '',
   })
   const [activeOffice, setActiveOffice] = useState(0)
+  const [showThankYou, setShowThankYou] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle form submission here
     console.log(formData)
+    // Show thank you modal
+    setShowThankYou(true)
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: subjects[0],
+      message: ''
+    })
   }
 
   return (
@@ -271,7 +323,7 @@ export default function Contact() {
                 <select
                   id="subject"
                   value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value as Subject })}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold/50 appearance-none cursor-pointer"
                   required
                 >
@@ -335,6 +387,7 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
+      <ThankYouModal isOpen={showThankYou} onClose={() => setShowThankYou(false)} />
     </section>
   )
 }
