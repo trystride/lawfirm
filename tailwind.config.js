@@ -15,6 +15,7 @@ module.exports = {
         'open-sans': ['var(--font-open-sans)'],
         geist: ['var(--font-geist-sans)'],
         'ibm-plex-arabic': ['var(--font-ibm-plex-arabic)'],
+        'ibm-plex-sans-arabic': ['var(--font-ibm-plex-sans-arabic)'],
       },
       animation: {
         grid: 'grid 20s linear infinite',
@@ -64,6 +65,7 @@ module.exports = {
           light: '#D4B98F',
           dark: '#A88B55'
         },
+        'brand-gold-light': '#D4B98F',
         text: {
           primary: '#F5F5F5',
           secondary: '#B1B1B1',
@@ -75,6 +77,10 @@ module.exports = {
         'brand-navy': '#081425',
         'brand-charcoal': '#1A1A1A',
         'brand-light': '#F0F0F0',
+        'brand-gold': '#C5A572',
+        'background': '#081425',
+        'text-primary': '#FFFFFF',
+        'text-secondary': '#94A3B8',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
